@@ -1,0 +1,2 @@
+# Product choices experiment
+This study aids researchers in determining what drives a consumer to buy the products they do. Participants are asked to choose between two products by looking at the packaging. They can optionally choose to turn the product over, following that they can optionally choose to read the nutritional information. All interactions are recorded, as is the time taken to make the decision.
