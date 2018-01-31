@@ -1,0 +1,127 @@
+﻿@model Product_Choices.Models.Trial
+
+<h2 class="text-center">Which product would you like to take?</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="option1div panel">
+            <img src="~/Content/Images/Front/@(Model.TrialNumber)a.jpg?@DateTime.Now.Ticks" width="406" height="502" class="front clickable" alt="option1" />
+            <img src="~/Content/Images/Back/@(Model.TrialNumber)a.jpg?@DateTime.Now.Ticks" width="406" height="502" class="back" alt="option1back" />
+            <img src="~/Content/Images/Details/@(Model.TrialNumber)a.jpg?@DateTime.Now.Ticks" width="380" height="380" class="details" alt="option1details" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="option2div panel">
+            <img src="~/Content/Images/Front/@(Model.TrialNumber)b.jpg?@DateTime.Now.Ticks" width="406" height="502" class="front clickable" alt="option2" />
+            <img src="~/Content/Images/Back/@(Model.TrialNumber)b.jpg?@DateTime.Now.Ticks" width="406" height="502" class="back" alt="option2back" />
+            <img src="~/Content/Images/Details/@(Model.TrialNumber)b.jpg?@DateTime.Now.Ticks" width="380" height="380" class="details" alt="option2details" />
+        </div>
+    </div>
+</div>
+
+<div class="row selection">
+    <div class="selectoption col-md-6">
+        <button class="option1button btn btn-primary btn-lg">Choose Option 1</button>
+    </div>
+    <div class="selectoption col-md-6">
+        <button class="option2button btn btn-primary btn-lg">Choose Option 2</button>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.OptionSelected)
+    @Html.HiddenFor(m => m.ParticipantId)
+    @Html.HiddenFor(m => m.TrialNumber)
+    @Html.HiddenFor(m => m.ViewOption1Details)
+    @Html.HiddenFor(m => m.ViewOption2Details)
+}
+
+<div class="loadingScreen">
+    <h3>
+        Loading...
+    </h3>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $('.option1div .front').click(function () {
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option1div').addClass('flip');
+                $('.option1div .back').addClass('clickable');
+                $('.option1div .front').removeClass('clickable');
+                $('#ViewOption1Details').val(parseInt($('#ViewOption1Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+        $('.option2div .front').click(function () {
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option2div').addClass('flip');
+                $('.option2div .back').addClass('clickable');
+                $('.option2div .front').removeClass('clickable');
+                $('#ViewOption2Details').val(parseInt($('#ViewOption2Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+
+        $('.option1div .back').click(function () {
+            if ($('.option1div .details').hasClass('clickable')) { return; }
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option1div .details').css('visibility', 'visible');
+                $('.option1div .details').addClass('clickable');
+                $('.option1div .back').removeClass('clickable');
+                $('#ViewOption1Details').val(parseInt($('#ViewOption1Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+        $('.option2div .back').click(function () {
+            if ($('.option2div .details').hasClass('clickable')) { return; }
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option2div .details').css('visibility', 'visible');
+                $('.option2div .details').addClass('clickable');
+                $('.option2div .back').removeClass('clickable');
+                $('#ViewOption2Details').val(parseInt($('#ViewOption2Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+
+        $('.option1div .details').click(function () {
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option1div .details').css('visibility', 'hidden');
+                $('.option1div').removeClass('flip');
+                $('.option1div .front').addClass('clickable');
+                $('.option1div .details').removeClass('clickable');
+                $('#ViewOption1Details').val(parseInt($('#ViewOption1Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+        $('.option2div .details').click(function () {
+            $('.loadingScreen').css('display', 'block');
+            setTimeout(function () {
+                $('.option2div .details').css('visibility', 'hidden');
+                $('.option2div').removeClass('flip');
+                $('.option2div .front').addClass('clickable');
+                $('.option2div .details').removeClass('clickable');
+                $('#ViewOption2Details').val(parseInt($('#ViewOption2Details').val()) + 1);
+                $('.loadingScreen').css('display', 'none');
+            }, 1000);
+        });
+
+
+        $('.option1button').click(function () {
+            $('#OptionSelected').val('1');
+            document.forms[0].submit();
+        });
+        $('.option2button').click(function () {
+            $('#OptionSelected').val('2');
+            document.forms[0].submit();
+        });
+    </script>
+}

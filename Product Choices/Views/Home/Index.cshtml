@@ -1,0 +1,12 @@
+﻿<div>
+    @using (Html.BeginForm()) {
+        <h2>Enter participant ID:</h2>
+    <div>
+        @Html.TextBox("pid", null, new { @class = "form-control" })
+        @Html.ValidationMessage("pid")
+    </div>
+    <div>
+        <button type="submit" class="btn btn-default">Continue</button>
+    </div>
+    }
+</div>

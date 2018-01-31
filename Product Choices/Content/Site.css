@@ -1,0 +1,165 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #eee;
+    
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+    
+.option1div img, .option2div img {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.option1div, .option2div {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selection {
+    margin-top: 550px;
+}
+
+.selectoption {
+    text-align: center;
+}
+
+.details {
+    visibility: hidden;
+    border: 2px solid black;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.9);
+    z-index: 1001;
+}
+
+.panel {
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    -ms-perspective: 600px;
+    perspective: 600px;
+
+    background-color: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+	/* -- make sure to declare a default for every property that you want animated -- */
+	/* -- general styles, including Y axis rotation -- */
+    .panel .front {
+        z-index: 900;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -ms-transform: rotateX(0deg) rotateY(0deg);
+        -o-transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(0deg) rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* -- transition is the magic sauce for animation -- */
+        -webkit-transition: all .4s ease-in-out;
+        -moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    .panel.flip .front {
+        z-index: 900;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .panel .back {
+        z-index: 800;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-179deg); /* setting to 180 causes an unnatural-looking half-flip */
+        -ms-transform: rotateY(-179deg);
+        -o-transform: rotateY(-179deg);
+        transform: rotateY(-179deg);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* -- transition is the magic sauce for animation -- */
+        -webkit-transition: all .4s ease-in-out;
+        -moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .panel.flip .back {
+        z-index: 1000;
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -ms-transform: rotateX(0deg) rotateY(0deg);
+        -o-transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(0deg) rotateY(0deg);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    }
+
+.questions-table input {
+    background-color: #eee;
+    height: auto;
+}
+
+.questions-table td {
+    width: 100px;
+    text-align: center;
+}
+
+.questions-table th:last-of-type {
+    text-align: right;
+}
+
+textarea#Question10 {
+    max-width: none;
+    height: 100px;
+}
+
+.loadingScreen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+
+    .loadingScreen h3 {
+        width: 200px;
+        margin: 250px auto;
+        padding: 50px;
+        background-color: #fff;
+        border: 2px solid #444;
+    }

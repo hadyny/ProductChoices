@@ -1,0 +1,103 @@
+﻿@model Product_Choices.Models.Questions1
+
+<h2>Follow up questions</h2>
+
+<h4>
+    You have now completed all of the rounds. The following questions will ask you about the task you just completed
+    and how your responses relate to your normal shopping behaviours. Please select the number that corresponds to
+    how much each statement applies to you.
+</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.pid)
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question1)</h4>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Question1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question2)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question3)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question4)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question5)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question5, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question6)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question6, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question6, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question7)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question7, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question7, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question8)</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question8, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question8, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>@Html.DisplayNameFor(model => model.Question10)</h4>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Question10, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question10, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Continue" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

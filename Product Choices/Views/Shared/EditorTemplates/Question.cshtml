@@ -1,0 +1,26 @@
+﻿@model System.Int32?
+
+
+<table class="questions-table">
+    <thead>
+        <tr>
+            <th colspan="2">Doesn't apply at all</th>
+            <th></th>
+            <th colspan="2">Strongly applies</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+    </thead>
+    <tr>
+        <td><div>@Html.RadioButton("", "1", new { @class = "form-control" })</div></td>
+        <td><div>@Html.RadioButton("", "2", new { @class = "form-control" })</div></td>
+        <td><div>@Html.RadioButton("", "3", new { @class = "form-control" })</div></td>
+        <td><div>@Html.RadioButton("", "4", new { @class = "form-control" })</div></td>
+        <td><div>@Html.RadioButton("", "5", new { @class = "form-control" })</div></td>
+    </tr>
+</table>

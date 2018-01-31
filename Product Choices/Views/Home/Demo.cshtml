@@ -1,0 +1,48 @@
+﻿<p class="lead text-center">
+    To gather more information about each product you may interact with it by clicking on it. Clicking on the product once will
+    turn it over and clicking on it a further time will enlarge the nutritional information to a readable size. For example, if you
+    wish to compare the nutritional information between products you will have to click four times, twice on each product. There will
+    be a short delay after each click while the new image loads.
+</p>
+<p class="lead text-center instructions">
+    Lets begin by practicing interacting with the product. Click on the cereal box below to turn it over then click a second time to 
+    enlarge the nutritional information.
+</p>
+
+<hr />
+<div class="row">
+    <div class="col-md-offset-4 col-md-5">
+        <div class="option1div panel">
+            <img src="~/Content/Images/Demo/Demo1Front.jpg" width="300" class="front clickable" alt="option1" />
+            <img src="~/Content/Images/Demo/Demo1Back.jpg" width="300" class="back" alt="option1back" />
+            <img src="~/Content/Images/Details/1a.jpg" width="300" class="details" alt="option1details" />
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding-top: 400px">
+    <div class="selectoption col-md-offset-3 col-md-6">
+        <a href="@Url.Action("Practice", new { pid = ViewBag.ParticipantId})" class="option1button btn btn-primary btn-lg" style="display:none">Continue</a>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $('.option1div .front').click(function () {
+            $('.option1div').addClass('flip');
+            $('.back').addClass('clickable');
+            setTimeout(function () {
+                $('.instructions').html('Click on the product again to enlarge the nutritional information.<br /><br />');
+            }, 500);
+        });
+
+        $('.option1div .back').click(function () {
+            $('.option1div .details').css('visibility', 'visible');
+            $('.back').removeClass('clickable');
+            $('.instructions').html('On the actual trials there will be a short delay after each click while the new image loads.<br /><br />');
+            $('a').css('display', 'inline-block');
+
+        });
+    </script>
+}

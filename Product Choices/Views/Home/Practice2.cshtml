@@ -1,0 +1,11 @@
+﻿<h1 class="text-center">Practice Round</h1>
+
+<p class="lead text-center">
+    You selected <strong>Option @ViewBag.Option</strong>. Now it is time to move onto the actual rounds. If you are still unclear
+    about what to do please signal the experimenter, otherwise click 'Continue' to proceed.
+</p> 
+
+
+<div class="text-center">
+    @Html.ActionLink("Continue", "Index", "Trials", new { pid = ViewBag.Pid }, new { @class = "btn btn-lg btn-primary" })
+</div>
